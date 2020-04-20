@@ -56,7 +56,9 @@
         return function legend(chart) {
 
             function removeLegendElement() {
-                var legendElement = chart.container.querySelector('.ct-legend');
+
+                // Look for an existing legend in either the chart container, or within the user specified position
+                var legendElement = chart.container.querySelector('.ct-legend') || options.position.querySelector('.ct-legend');;
                 if (legendElement) {
                     legendElement.parentNode.removeChild(legendElement);
                 }
